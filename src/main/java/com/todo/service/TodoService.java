@@ -1,6 +1,8 @@
 package com.todo.service;
 
 import com.todo.entity.Todo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.concurrent.ConcurrentMap;
 
 @Service
 public class TodoService {
+    Logger logger = LoggerFactory.getLogger(TodoService.class);
 
     ConcurrentMap<Integer, Todo> plannedTasks=new ConcurrentHashMap<>();
     ConcurrentMap<Integer, Todo> inProgressTasks=new ConcurrentHashMap<>();
@@ -49,9 +52,14 @@ public class TodoService {
      }
 
     public Todo save(Todo todo) {
-        todo.setId(++idCounter);
-        plannedTasks.put(todo.getId(),todo);
-        return todo;
+        try {
+            todo.setId(++idCounter);
+            plannedTasks.put(todo.getId(), todo);
+            return todo;
+        }catch (Exception e){
+            logger.error(e.getMessage());
+            return null;
+        }
     }
 
     public Todo saveInProgessTasks(Todo todo) {
