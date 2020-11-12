@@ -66,6 +66,6 @@ public class TodoController {
 
     @PostMapping("moveInProgressToDone")
     public void moveInProgressToDone(@RequestBody Todo todo) {
-        todoService.moveIngressToDone(todo);
+        todoService.moveInProgressToDone(todo);
     }
 }

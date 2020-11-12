@@ -75,7 +75,7 @@ public class TodoService {
         saveInProgessTasks(todo);
     }
 
-    public void moveIngressToDone(Todo todo) {
+    public void moveInProgressToDone(Todo todo) {
         deleteInProgressById(todo.getId());
         saveDoneTasks(todo);
     }
