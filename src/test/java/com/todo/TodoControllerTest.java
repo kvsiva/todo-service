@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest
-public class TodoControllerTest {
+class TodoControllerTest {
     @Autowired
     MockMvc mockMvc;
 
@@ -67,8 +67,8 @@ public class TodoControllerTest {
         ).andExpect(jsonPath("$", hasSize(1))).andDo(print());
     }
 
-  @Test
-  public void saveTodo() throws Exception {
+    @Test
+    void saveTodo() throws Exception {
       String uri = "/todos/createTask";
       Todo todo = new Todo(1,"Eat thrice","HIGH");
 
@@ -81,7 +81,7 @@ public class TodoControllerTest {
    }
 
     @Test
-    public void deleteTaskPlanned() throws Exception {
+    void deleteTaskPlanned() throws Exception {
         String uri = "/todos/deleteTaskPlanned/1";
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.delete(uri)).andReturn();
         int status = mvcResult.getResponse().getStatus();
@@ -89,7 +89,7 @@ public class TodoControllerTest {
     }
 
     @Test
-    public void deleteTaskProgress() throws Exception {
+    void deleteTaskProgress() throws Exception {
         String uri = "/todos/deleteTaskProgress/1";
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.delete(uri)).andReturn();
         int status = mvcResult.getResponse().getStatus();
@@ -97,7 +97,7 @@ public class TodoControllerTest {
     }
 
     @Test
-    public void updateTask() throws Exception {
+    void updateTask() throws Exception {
         String uri = "/todos/updateTask/1";
         Todo todo = new Todo(1,"Eat thrice","HIGH");
         String inputJson = mapToJson(todo);
@@ -109,7 +109,7 @@ public class TodoControllerTest {
      }
 
     @Test
-    public void updateInProgressTask() throws Exception {
+    void updateInProgressTask() throws Exception {
         String uri = "/todos/updateInProgressTask/1";
         Todo todo = new Todo(1,"Eat thrice","HIGH");
         String inputJson = mapToJson(todo);

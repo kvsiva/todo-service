@@ -17,7 +17,7 @@ public class TodoService {
     ConcurrentMap<Integer, Todo> plannedTasks=new ConcurrentHashMap<>();
     ConcurrentMap<Integer, Todo> inProgressTasks=new ConcurrentHashMap<>();
     ConcurrentMap<Integer, Todo> doneTasks=new ConcurrentHashMap<>();
-    private static int idCounter = 0;
+    private int idCounter = 0;
 
     public List<Todo> findPlannedTasks() {
         return new ArrayList<>(plannedTasks.values());

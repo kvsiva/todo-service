@@ -50,19 +50,19 @@ public class TodoController {
     @PutMapping("updateTask/{id}")
     public ResponseEntity<Todo> updateTask(@RequestBody Todo todo,@PathVariable Integer id) {
         Todo todoUpdated = todoService.update(todo,id);
-        return new ResponseEntity<Todo>(todoUpdated, HttpStatus.OK);
+        return new ResponseEntity<>(todoUpdated, HttpStatus.OK);
     }
 
     @PutMapping("updateInProgressTask/{id}")
     public ResponseEntity<Todo> updateInProgressTask(@RequestBody Todo todo,@PathVariable Integer id) {
         Todo todoUpdated = todoService.updateInProgressTask(todo,id);
-        return new ResponseEntity<Todo>(todoUpdated, HttpStatus.OK);
+        return new ResponseEntity<>(todoUpdated, HttpStatus.OK);
     }
 
     @PostMapping("createTask")
     public ResponseEntity<Todo> createTask(@RequestBody Todo todo) {
         Todo todoCreated = todoService.save(todo);
-        return new ResponseEntity<Todo>(todoCreated, HttpStatus.CREATED);
+        return new ResponseEntity<>(todoCreated, HttpStatus.CREATED);
     }
 
     @PostMapping("movePlannedToInProgress")
