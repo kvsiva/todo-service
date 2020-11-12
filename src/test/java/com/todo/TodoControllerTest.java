@@ -108,6 +108,18 @@ public class TodoControllerTest {
         assertEquals(200, status);
      }
 
+    @Test
+    public void updateInProgressTask() throws Exception {
+        String uri = "/todos/updateInProgressTask/1";
+        Todo todo = new Todo(1,"Eat thrice","HIGH");
+        String inputJson = mapToJson(todo);
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.put(uri)
+                .contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);
+    }
+
     protected String mapToJson(Object obj) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(obj);

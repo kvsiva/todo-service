@@ -70,6 +70,11 @@ public class TodoService {
         return todo;
     }
 
+    public Todo updateInProgressTask(Todo todo,Integer id) {
+        inProgressTasks.put(id,todo);
+        return todo;
+    }
+
     public void movePlanToProgress(Todo todo) {
         deleteById(todo.getId());
         saveInProgessTasks(todo);

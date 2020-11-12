@@ -53,6 +53,12 @@ public class TodoController {
         return new ResponseEntity<Todo>(todoUpdated, HttpStatus.OK);
     }
 
+    @PutMapping("updateInProgressTask/{id}")
+    public ResponseEntity<Todo> updateInProgressTask(@RequestBody Todo todo,@PathVariable Integer id) {
+        Todo todoUpdated = todoService.updateInProgressTask(todo,id);
+        return new ResponseEntity<Todo>(todoUpdated, HttpStatus.OK);
+    }
+
     @PostMapping("createTask")
     public ResponseEntity<Todo> createTask(@RequestBody Todo todo) {
         Todo todoCreated = todoService.save(todo);
