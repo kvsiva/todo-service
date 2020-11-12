@@ -56,7 +56,7 @@ public class TodoController {
     @PostMapping("createTask")
     public ResponseEntity<Todo> createTask(@RequestBody Todo todo) {
         Todo todoCreated = todoService.save(todo);
-        return new ResponseEntity<Todo>(todoCreated, HttpStatus.OK);
+        return new ResponseEntity<Todo>(todoCreated, HttpStatus.CREATED);
     }
 
     @PostMapping("movePlannedToInProgress")
