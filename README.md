@@ -1,5 +1,11 @@
 # todo-service
 
+Initial Setup requirements:
+openjdk 14.02
+Spring Boot 2.3.5.RELEASE
+Intellij Community Edition 2020.2
+gradle 6.6.1 or above
+
 API Calls:
 
 http://localhost:9195/todos/createTask
