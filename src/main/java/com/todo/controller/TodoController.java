@@ -31,7 +31,7 @@ public class TodoController {
     }
 
     @DeleteMapping("deleteTaskPlanned/{id}")
-    public ResponseEntity<Void> deleteTask(@PathVariable int id) {
+    public ResponseEntity<Void> deleteTaskPlanned(@PathVariable int id) {
         todoService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -42,13 +42,8 @@ public class TodoController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("getTask/{id}")
-    public Todo getTask(@PathVariable int id) {
-        return todoService.findById(id);
-    }
-
-    @PutMapping("updateTask/{id}")
-    public ResponseEntity<Todo> updateTask(@RequestBody Todo todo,@PathVariable Integer id) {
+    @PutMapping("updatePlannedTask/{id}")
+    public ResponseEntity<Todo> updatePlannedTask(@RequestBody Todo todo,@PathVariable Integer id) {
         Todo todoUpdated = todoService.update(todo,id);
         return new ResponseEntity<>(todoUpdated, HttpStatus.OK);
     }

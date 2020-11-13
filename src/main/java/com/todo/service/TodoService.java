@@ -31,18 +31,6 @@ public class TodoService {
         return new ArrayList<>(doneTasks.values());
     }
 
-    public Todo findById(int id) {
-        return plannedTasks.get(id);
-    }
-
-    public Todo findPlannedTasksById(int id) {
-        return plannedTasks.get(id);
-    }
-
-    public Todo findInProgressTasksById(int id) {
-        return inProgressTasks.get(id);
-    }
-
     public void deleteById(int id) {
         plannedTasks.remove(id);
     }

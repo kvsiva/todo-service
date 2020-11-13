@@ -97,7 +97,7 @@ class TodoControllerTest {
     }
 
     @Test
-    void updateTask() throws Exception {
+    void updatePlannedTask() throws Exception {
         String uri = "/todos/updateTask/1";
         Todo todo = new Todo(1,"Eat thrice","HIGH");
         String inputJson = mapToJson(todo);
@@ -114,6 +114,30 @@ class TodoControllerTest {
         Todo todo = new Todo(1,"Eat thrice","HIGH");
         String inputJson = mapToJson(todo);
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.put(uri)
+                .contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);
+    }
+
+    @Test
+    void movePlannedToInProgress() throws Exception {
+        String uri = "/todos/movePlannedToInProgress";
+        Todo todo = new Todo(1,"Eat thrice","HIGH");
+        String inputJson = mapToJson(todo);
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post(uri)
+                .contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);
+    }
+
+    @Test
+    void moveInProgressToDone() throws Exception {
+        String uri = "/todos/moveInProgressToDone";
+        Todo todo = new Todo(1,"Eat thrice","HIGH");
+        String inputJson = mapToJson(todo);
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post(uri)
                 .contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
 
         int status = mvcResult.getResponse().getStatus();
