@@ -96,7 +96,7 @@ class TodoControllerTest {
         assertEquals(200, status);
     }
 
-    @Test
+   /* @Test
     void updatePlannedTask() throws Exception {
         String uri = "/todos/updateTask/1";
         Todo todo = new Todo(1,"Eat thrice","HIGH");
@@ -106,7 +106,7 @@ class TodoControllerTest {
 
         int status = mvcResult.getResponse().getStatus();
         assertEquals(200, status);
-     }
+     }*/
 
     @Test
     void updateInProgressTask() throws Exception {

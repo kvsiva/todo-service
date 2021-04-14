@@ -1,11 +1,11 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.5.RELEASE'
+	id 'org.springframework.boot' version '2.3.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
 }
 
 group = 'com.todo'
-version = '0.0.1-SNAPSHOT'
+version = '1.0'
 sourceCompatibility = '14'
 
 repositories {
